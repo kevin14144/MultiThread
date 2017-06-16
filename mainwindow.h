@@ -2,12 +2,12 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include "qmetaobject.h"
-
-#include "qdebug.h"
+#include <qdebug.h>
+//Std
 #include <mutex>
 #include <thread>
-#include <condition_variable>
+//
+#include "project.h"
 
 namespace Ui {
 class MainWindow;
@@ -25,13 +25,15 @@ public:
     ~MainWindow();
 
 private slots:
-    void on_pushButton_clicked();
+    void on_RunMainFormFunction_clicked();
+    void on_RunClassFunction_clicked();
 
 private:
-    int AddValue =0;
+    int SumValue =0;
     Ui::MainWindow *ui;
     mutex m_mutex;
     void Run(int i);
+
 };
 
 #endif // MAINWINDOW_H

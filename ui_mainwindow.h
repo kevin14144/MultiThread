@@ -13,7 +13,6 @@
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
-#include <QtWidgets/QCheckBox>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
@@ -30,8 +29,8 @@ class Ui_MainWindow
 public:
     QWidget *centralWidget;
     QLabel *label;
-    QPushButton *pushButton;
-    QCheckBox *checkBox;
+    QPushButton *RunMainFormFunction;
+    QPushButton *RunClassFunction;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -45,13 +44,13 @@ public:
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         label = new QLabel(centralWidget);
         label->setObjectName(QStringLiteral("label"));
-        label->setGeometry(QRect(10, 20, 141, 21));
-        pushButton = new QPushButton(centralWidget);
-        pushButton->setObjectName(QStringLiteral("pushButton"));
-        pushButton->setGeometry(QRect(10, 60, 80, 20));
-        checkBox = new QCheckBox(centralWidget);
-        checkBox->setObjectName(QStringLiteral("checkBox"));
-        checkBox->setGeometry(QRect(110, 20, 75, 18));
+        label->setGeometry(QRect(10, 20, 91, 21));
+        RunMainFormFunction = new QPushButton(centralWidget);
+        RunMainFormFunction->setObjectName(QStringLiteral("RunMainFormFunction"));
+        RunMainFormFunction->setGeometry(QRect(10, 50, 80, 20));
+        RunClassFunction = new QPushButton(centralWidget);
+        RunClassFunction->setObjectName(QStringLiteral("RunClassFunction"));
+        RunClassFunction->setGeometry(QRect(110, 50, 80, 20));
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
@@ -73,8 +72,8 @@ public:
     {
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", Q_NULLPTR));
         label->setText(QApplication::translate("MainWindow", "TextLabel", Q_NULLPTR));
-        pushButton->setText(QApplication::translate("MainWindow", "Strart", Q_NULLPTR));
-        checkBox->setText(QApplication::translate("MainWindow", "CheckBox", Q_NULLPTR));
+        RunMainFormFunction->setText(QApplication::translate("MainWindow", "Case1 Strart", Q_NULLPTR));
+        RunClassFunction->setText(QApplication::translate("MainWindow", "Case2 Start", Q_NULLPTR));
     } // retranslateUi
 
 };
