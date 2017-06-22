@@ -24,7 +24,6 @@ void MainWindow::Run(int i)
     lock_guard<mutex> mLock(m_mutex); // Auto unlock when outside the scope
     while(true)
     {
-
         i++;
         if(i>100)
         {
@@ -54,12 +53,42 @@ void MainWindow::on_RunMainFormFunction_clicked()
 }
 
 
-Project pr;//Must be alive because thread maybe using.
+Project pr;//Must be alive always ,because thread maybe be using.
 void MainWindow::on_RunClassFunction_clicked()
 {
-    pr.DoProjectAnsyc();
-    //   std::thread th(&Project::DoProjectAnsyc,&pr);
-    //   if(th.joinable())
-    //       th.detach();//Background Thread
+    int Count = 0;
+    pr.DoProjectAnsyc(Count);
+    while (Count<100)
+    {
+      ui->label->setText(QString::number(Count));
+      qApp->processEvents();//Force to process event queue
+    }
+    qDebug()<< "Finish";
+
+}
+
+///
+///Return Array by reference (in / out) , Fix num
+///
+int (&MainWindow::fillarr( int (&arr)[5]))[5]
+{
+    // no decay; argument must be size 5
+    for( int i=0; i< 5; i++ )
+        arr[i] = i;
+
+    return arr;
+}
+
+
+///
+/// \brief Return Array by Pointer. Need paramenter about array length.
+/// \param arr
+/// \param arrayLength
+///
+void MainWindow::fillarr( int* arr , int arrayLength)
+{
+    // no decay; argument must be size 5
+    for( int i=0; i< arrayLength; i++ )
+      arr[i] = i;
 }
 

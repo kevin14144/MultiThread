@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include <qdebug.h>
+#include <QApplication>
 //Std
 #include <mutex>
 #include <thread>
@@ -33,7 +34,8 @@ private:
     Ui::MainWindow *ui;
     mutex m_mutex;
     void Run(int i);
-
+    int (&fillarr(int (&arr)[5]))[5];
+    void fillarr(int* arr , int arrayLength);
 };
 
 #endif // MAINWINDOW_H
