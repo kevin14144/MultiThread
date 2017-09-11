@@ -58,6 +58,7 @@ void MainWindow::on_RunClassFunction_clicked()
 {
     int Count = 0;
     pr.DoProjectAnsyc(Count);
+
     while (Count<100)
     {
       ui->label->setText(QString::number(Count));

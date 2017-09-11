@@ -6,6 +6,7 @@
 #include <thread>
 #include <mutex>
 #include <iostream>
+#include "projectmanager.h"
 
 using namespace std;
 
